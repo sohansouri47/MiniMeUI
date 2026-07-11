@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Deep-Space Dark Mode (Default) */
+    --color-background: #030014;
+    --color-surface: rgba(255, 255, 255, 0.03);
+    --color-primary: #9d4edd; /* Deep Purple */
+    --color-text: #f8f9fa;
+    --color-text-muted: #adb5bd;
+
+    --glow-primary: rgba(157, 78, 221, 0.4);
+    --glow-secondary: rgba(0, 180, 216, 0.3); /* Cyan secondary */
+  }
+
+  .warm-light {
+    /* Warm-Light Mode */
+    --color-background: #faf9f6; /* Off-white/cream */
+    --color-surface: rgba(0, 0, 0, 0.04);
+    --color-primary: #e07a5f; /* Warm sunset orange/red */
+    --color-text: #2b2d42;
+    --color-text-muted: #8d99ae;
+
+    --glow-primary: rgba(224, 122, 95, 0.3);
+    --glow-secondary: rgba(244, 162, 97, 0.2);
+  }
+
+  body {
+    @apply bg-background text-text antialiased transition-colors duration-700 ease-in-out;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-surface backdrop-blur-[30px] border border-white/10 shadow-lg;
+  }
+
+  .warm-light .glass-panel {
+    @apply border-black/5 shadow-md;
+  }
+}
